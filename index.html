@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
+		<meta charset="UTF-8" />
 		<title>Snake Game</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="script.js"></script>
+		<link rel="icon" href="img/snake.svg" type="image/png" />
 	</head>
 	<body>
-		<div class="scoreDisplay"></div>
-		<div class="field"></div>
-		<div class="buttons">
-			<button class="top">top</button>
-			<button class="right">right</button>
-			<button class="bottom">bottom</button>
-			<button class="left">left</button>
-			<button class="playAgain">play Again</button>
+		<div id="game">
+			<div class="game-header">
+				<div class="game-score">
+					<span class="score-count">0</span>
+				</div>
+			</div>
+			<div class="canvas-wrapper">
+				<canvas id="game-canvas" width="400" height="400"></canvas>
+			</div>
 		</div>
+		<script src="script.js"></script>
 	</body>
 </html>
