@@ -2,21 +2,33 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<!-- Устанавливаем кодировку документа для правильного отображения символов -->
 		<title>Snake Game</title>
+		<!-- Название страницы, которое отображается на вкладке браузера -->
 		<link rel="stylesheet" href="style.css" />
+		<!-- Подключаем файл стилей для оформления страницы -->
 		<link rel="icon" href="img/snake.svg" type="image/png" />
+		<!-- Устанавливаем иконку сайта (favicon) -->
 	</head>
 	<body>
+		<!-- Контейнер для всей игры -->
 		<div id="game">
+			<!-- Заголовок игры с отображением счета -->
 			<div class="game-header">
 				<div class="game-score">
 					<span class="score-count">0</span>
+					<!-- Элемент для отображения текущего счета -->
 				</div>
 			</div>
+
+			<!-- Контейнер для игрового поля (canvas) -->
 			<div class="canvas-wrapper">
+				<!-- Элемент canvas, где будет рисоваться игра (змея, ягоды, фон и т.д.) -->
 				<canvas id="game-canvas" width="400" height="400"></canvas>
 			</div>
 		</div>
+
+		<!-- Подключаем внешний файл с JavaScript кодом для логики игры -->
 		<script src="script.js"></script>
 	</body>
 </html>
