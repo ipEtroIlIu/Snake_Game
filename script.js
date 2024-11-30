@@ -193,8 +193,11 @@ document.addEventListener('DOMContentLoaded', function () {
 		const response = await fetch(url);
 		const data = await response.json();
 
+		// Фильтруем данные, оставляя только те, у которых есть поле time
+		const filteredData = data.filter((item) => item.time);
+
 		// Сортируем данные по времени в порядке убывания
-		const sortedData = data.sort((a, b) => new Date(b.time) - new Date(a.time));
+		const sortedData = filteredData.sort((a, b) => new Date(b.time) - new Date(a.time));
 
 		// Перебираем отсортированные данные
 		for (const item of sortedData) {
@@ -209,6 +212,9 @@ document.addEventListener('DOMContentLoaded', function () {
 				// Устанавливаем картинку и текст в select
 				animalImage.src = `img/${skin}.svg`;
 				animalSelect.value = skin;
+
+				// Прерываем цикл после первого совпадения
+				break;
 			}
 		}
 	}
