@@ -45,7 +45,7 @@ body {
 
 /* Стиль для текста счета */
 .score-count {
-	font-size: 25px; /* Размер шрифта */
+	font-size: 22px; /* Размер шрифта */
 	color: #22a4f1; /* Голубой цвет текста */
 	font-weight: bold; /* Жирный шрифт */
 }
@@ -55,4 +55,147 @@ body {
 	background-color: #282c34; /* Темный фон */
 	border: 10px solid #282c34; /* Граница, совпадающая с фоном */
 	background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+CjxzdmcgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjQiIHk9IjQiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI1IiB5PSI0IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNiIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjciIHk9IjQiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI4IiB5PSI0IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iOSIgeT0iNCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjEwIiB5PSI0IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iMTEiIHk9IjQiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI0IiB5PSI1IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNSIgeT0iNSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjYiIHk9IjUiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI3IiB5PSI1IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iOCIgeT0iNSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjkiIHk9IjUiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSIxMCIgeT0iNSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjExIiB5PSI1IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNCIgeT0iNiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjUiIHk9IjYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNyIgeT0iNiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjgiIHk9IjYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI5IiB5PSI2IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iMTAiIHk9IjYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSIxMSIgeT0iNiIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjQiIHk9IjciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI1IiB5PSI3IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNiIgeT0iNyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjciIHk9IjciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI4IiB5PSI3IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iOSIgeT0iNyIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjEwIiB5PSI3IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iMTEiIHk9IjciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI0IiB5PSI4IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNSIgeT0iOCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjYiIHk9IjgiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI3IiB5PSI4IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjkiIHk9IjgiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSIxMCIgeT0iOCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjExIiB5PSI4IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNCIgeT0iOSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjUiIHk9IjkiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI2IiB5PSI5IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNyIgeT0iOSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjgiIHk9IjkiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI5IiB5PSI5IiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iMTAiIHk9IjkiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSIxMSIgeT0iOSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjQiIHk9IjEwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNSIgeT0iMTAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI2IiB5PSIxMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjciIHk9IjEwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iOCIgeT0iMTAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjExIiB5PSIxMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjQiIHk9IjExIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iNSIgeT0iMTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI2IiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjciIHk9IjExIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjNTA1MDU1IiBvcGFjaXR5PSIwLjM0OTAyMCIgLz4KPHJlY3QgeD0iOCIgeT0iMTEiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiM1MDUwNTUiIG9wYWNpdHk9IjAuMzQ5MDIwIiAvPgo8cmVjdCB4PSI5IiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjEwIiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+CjxyZWN0IHg9IjExIiB5PSIxMSIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0iIzUwNTA1NSIgb3BhY2l0eT0iMC4zNDkwMjAiIC8+Cjwvc3ZnPg=='); /* Базовое64 изображение */
+}
+
+#start-button {
+	padding: 6px 6px 0px 6px; /* Отступы вокруг текста */
+	font-size: 18px; /* Размер шрифта */
+	width: 172px; /* Минимальная ширина блока с очками */
+	height: 30px; /* Высота блока с очками */
+	background: #282c34; /* Темный фон */
+	border-radius: 5px 5px 0px 0px; /* Закругленные углы снизу */
+	border: none;
+	display: flex; /* Используем flexbox для центрирования */
+	justify-content: center; /* Центрируем текст по горизонтали */
+	align-items: center; /* Центрируем текст по вертикали */
+	color: #22a4f1; /* Голубой цвет текста */
+	font-weight: bold;
+	outline: none;
+	box-shadow: 0px 0px 8px 4px #000;
+	transition: box-shadow 0.35s;
+	cursor: pointer;
+}
+
+#start-button:hover {
+	box-shadow: 0px 0px 2px 2px #000;
+}
+
+#start-button:active {
+	box-shadow: 0px 0px 0px 0px #000;
+}
+
+#animal-img {
+	width: 128px;
+	height: 128px;
+	padding-bottom: 12px;
+}
+
+.animals {
+	position: absolute; /* Абсолютное позиционирование */
+	top: 50%; /* Центрируем по вертикали относительно родителя */
+	left: calc(100% - 210px); /* Располагаем между игровым полем и стенкой */
+	transform: translateY(-50%); /* Корректируем по вертикали */
+	background-color: #282c34; /* Фон для заметности */
+	padding: 10px; /* Внутренние отступы */
+	border-radius: 8px; /* Закругленные углы */
+	box-shadow: 0px 0px 10px #000; /* Тень */
+	border: none;
+	justify-content: center; /* Центрируем текст по горизонтали */
+	align-items: center; /* Центрируем текст по вертикали */
+	transition: margin-left 0.5s;
+}
+
+select {
+	border: none;
+	border-radius: 5px;
+	width: 100%;
+	padding: 10px 15px;
+	background-color: #21252b;
+	color: #22a4f1;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	appearance: unset;
+	outline: none;
+}
+
+option {
+	color: #fff;
+}
+
+.best-score-count {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 22px; /* Размер шрифта */
+	color: #22a4f1; /* Голубой цвет текста */
+	font-weight: bold; /* Жирный шрифт */
+}
+
+.yourName {
+	background-color: #282c34;
+	height: 32px;
+	width: 420px;
+	display: flex; /* Включаем Flexbox */
+	justify-content: center; /* Центрируем по горизонтали */
+	align-items: center; /* Центрируем по вертикали */
+	margin-top: 0;
+}
+
+.spanName {
+	color: #22a4f1;
+	font-size: 18px;
+	font-weight: bold;
+	overflow: hidden;
+	display: inline-block;
+	height: 18px;
+	width: 393px;
+	padding: 0;
+	margin: 0;
+	display: flex; /* Включаем Flexbox */
+	justify-content: center; /* Центрируем по горизонтали */
+	align-items: center; /* Центрируем по вертикали */
+	padding-bottom: 12px;
+}
+
+/* Когда ширина окна больше 1200px, например, это может соответствовать увеличенному масштабу */
+@media (max-width: 800px) {
+	.animals {
+		margin-left: 200px;
+	}
+}
+
+/* Когда ширина окна меньше 1200px (соответствует меньшему масштабу) */
+@media (min-width: 800px) {
+	.animals {
+		margin-left: 0;
+	}
+}
+
+.manual {
+	position: absolute; /* Абсолютное позиционирование */
+	top: 50%; /* Центрируем по вертикали относительно родителя */
+	right: calc(100% - 210px); /* Располагаем между игровым полем и стенкой */
+	transform: translateY(-50%); /* Корректируем по вертикали */
+	background-color: #282c34; /* Фон для заметности */
+	padding: 10px; /* Внутренние отступы */
+	border-radius: 8px; /* Закругленные углы */
+	box-shadow: 0px 0px 10px #000; /* Тень */
+	border: none;
+	justify-content: center; /* Центрируем текст по горизонтали */
+	align-items: center; /* Центрируем текст по вертикали */
+	transition: margin-right 0.5s;
+}
+
+/* Когда ширина окна больше 1200px, например, это может соответствовать увеличенному масштабу */
+@media (max-width: 800px) {
+	.manual {
+		margin-right: 200px;
+	}
+}
+
+/* Когда ширина окна меньше 1200px (соответствует меньшему масштабу) */
+@media (min-width: 800px) {
+	.manual {
+		margin-right: 0;
+	}
 }

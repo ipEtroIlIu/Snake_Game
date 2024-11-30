@@ -1,179 +1,256 @@
-// Переменные для отслеживания счета
-let scoreBlock;
-let score = 0;
+document.addEventListener('DOMContentLoaded', function () {
+	const startButton = document.querySelector('#start-button');
+	const gameContainer = document.querySelector('#game');
+	const canvas = document.querySelector('#game-canvas');
+	const context = canvas.getContext('2d');
+	let gameStarted = false;
+	let gamePaused = false;
 
-// Конфигурационные параметры игры
-const config = {
-	step: 0, // Шаг анимации
-	maxStep: 6, // Максимальное количество шагов на кадр (для замедления игры)
-	sizeCell: 16, // Размер ячейки змеи и других объектов
-	sizeBerry: 16 / 4, // Размер ягоды (четверть размера ячейки)
-};
+	let scoreBlock;
+	let score = 0;
+	let animationFrame;
 
-// Объект змеи с начальными координатами, направлением и хвостом
-const snake = {
-	x: 160, // Начальная позиция по оси X
-	y: 160, // Начальная позиция по оси Y
-	dx: config.sizeCell, // Направление движения змеи по оси X
-	dy: 0, // Направление движения змеи по оси Y
-	tails: [], // Массив хвоста змеи
-	maxTails: 3, // Максимальная длина хвоста
-};
+	const config = {
+		step: 0,
+		maxStep: 6,
+		sizeCell: 16,
+		sizeBerry: 16 / 4,
+	};
 
-// Начальная позиция ягоды
-let berry = {
-	x: 0,
-	y: 0,
-};
+	const snake = {};
+	let berry = { x: 0, y: 0 };
 
-// Получаем элементы для отображения счета и канваса
-let canvas = document.querySelector('#game-canvas');
-let context = canvas.getContext('2d');
-scoreBlock = document.querySelector('.game-score .score-count');
-drawScore(); // Отображаем начальный счет
+	// Получение имени пользователя через prompt
+	const userName = `${prompt('What is your Name?') || 'Anonymous'}`;
+	const animalSelect = document.querySelector('select');
+	let skin = animalSelect.value;
 
-// Основной игровой цикл
-function gameLoop() {
-	requestAnimationFrame(gameLoop); // Вызываем функцию для следующего кадра
-	if (++config.step < config.maxStep) {
-		return; // Пропускаем кадр, если шаг не достиг максимума
-	}
-	config.step = 0; // Сбрасываем шаг
-
-	context.clearRect(0, 0, canvas.width, canvas.height); // Очищаем экран
-
-	drawBerry(); // Отображаем ягоду
-	drawSnake(); // Отображаем змею
-}
-requestAnimationFrame(gameLoop); // Запускаем игровой цикл
-
-// Функция для рисования змеи
-function drawSnake() {
-	snake.x += snake.dx; // Обновляем координаты змеи по X
-	snake.y += snake.dy; // Обновляем координаты змеи по Y
-
-	collisionBorder(); // Проверяем столкновение с границей экрана
-
-	// Добавляем новую позицию головы змеи в массив хвоста
-	snake.tails.unshift({ x: snake.x, y: snake.y });
-
-	// Если хвост слишком длинный, удаляем последний элемент
-	if (snake.tails.length > snake.maxTails) {
-		snake.tails.pop();
+	function drawScore() {
+		scoreBlock.innerHTML = score;
 	}
 
-	// Рисуем каждый сегмент хвоста
-	snake.tails.forEach(function (el, index) {
-		// Если это голова змеи, цвет будет другой
-		if (index == 0) {
-			context.fillStyle = '#25aff3';
-		} else {
-			context.fillStyle = '#166d99';
-		}
-		context.fillRect(el.x, el.y, config.sizeCell, config.sizeCell); // Рисуем квадрат
+	function drawSnake() {
+		snake.x += snake.dx;
+		snake.y += snake.dy;
 
-		// Если змея съела ягоду, увеличиваем хвост и счет
-		if (el.x === berry.x && el.y === berry.y) {
-			snake.maxTails++; // Увеличиваем длину хвоста
-			incScore(); // Увеличиваем счет
-			randomPositionBerry(); // Генерируем новую позицию для ягоды
+		collisionBorder();
+
+		snake.tails.unshift({ x: snake.x, y: snake.y });
+
+		if (snake.tails.length > snake.maxTails) {
+			snake.tails.pop();
 		}
 
-		// Проверяем, не столкнулась ли змея с собой
-		for (let i = index + 1; i < snake.tails.length; i++) {
-			if (el.x == snake.tails[i].x && el.y == snake.tails[i].y) {
-				refreshGame(); // Если столкнулась — перезапускаем игру
+		snake.tails.forEach(function (el, index) {
+			context.fillStyle = index === 0 ? '#25aff3' : '#166d99';
+			context.fillRect(el.x, el.y, config.sizeCell, config.sizeCell);
+
+			if (el.x === berry.x && el.y === berry.y) {
+				snake.maxTails++;
+				incScore();
+				randomPositionBerry();
+			}
+
+			for (let i = index + 1; i < snake.tails.length; i++) {
+				if (el.x === snake.tails[i].x && el.y === snake.tails[i].y) {
+					stopGame(); // Столкновение
+				}
+			}
+		});
+	}
+
+	function drawBerry() {
+		context.fillStyle = '#25aff3';
+		context.fillRect(
+			berry.x + config.sizeCell / 2 - config.sizeBerry,
+			berry.y + config.sizeCell / 2 - config.sizeBerry,
+			config.sizeBerry * 2,
+			config.sizeBerry * 2,
+		);
+	}
+
+	function collisionBorder() {
+		if (snake.x < 0) snake.x = canvas.width - config.sizeCell;
+		else if (snake.x >= canvas.width) snake.x = 0;
+		if (snake.y < 0) snake.y = canvas.height - config.sizeCell;
+		else if (snake.y >= canvas.height) snake.y = 0;
+	}
+
+	function randomPositionBerry() {
+		berry.x = getRandomInt(0, canvas.width / config.sizeCell) * config.sizeCell;
+		berry.y = getRandomInt(0, canvas.height / config.sizeCell) * config.sizeCell;
+	}
+
+	function incScore() {
+		score++;
+		drawScore();
+	}
+
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min) + min);
+	}
+
+	function gameLoop() {
+		animationFrame = requestAnimationFrame(gameLoop);
+
+		if (++config.step < config.maxStep) return;
+		config.step = 0;
+
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		drawBerry();
+		drawSnake();
+	}
+
+	function startGame() {
+		if (gameStarted) {
+		}
+
+		gameStarted = true;
+		gamePaused = false;
+		gameContainer.style.display = 'flex'; // Показываем игру
+		startButton.textContent = 'Restart'; // Меняем текст кнопки
+		scoreBlock = document.querySelector('.score-count');
+		score = 0;
+		drawScore();
+
+		snake.x = 176;
+		snake.y = 192;
+		snake.dx = config.sizeCell;
+		snake.dy = 0;
+		snake.tails = [];
+		snake.maxTails = 5;
+
+		randomPositionBerry();
+
+		cancelAnimationFrame(animationFrame);
+		requestAnimationFrame(gameLoop);
+	}
+
+	function stopGame() {
+		gamePaused = true;
+		cancelAnimationFrame(animationFrame);
+		sendGameData(); // Отправляем данные при проигрыше
+	}
+
+	function sendGameData() {
+		skin = animalSelect.value; // Обновляем выбранное животное
+
+		const payload = {
+			name: userName,
+			score: score,
+			skin: skin,
+			time: new Date().toISOString(),
+		};
+
+		fetch('https://kool.krister.ee/chat/Snake_Game', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+		})
+			.then((response) => response.json())
+			.then((data) => console.log('Data sent successfully:', data))
+			.catch((error) => console.error('Error sending data:', error));
+	}
+
+	async function getName() {
+		const element = document.querySelector('.yourName');
+		element.innerHTML = `<span class="spanName">You are: ${userName}</span>`;
+	}
+
+	getName();
+
+	async function getBestScore() {
+		const url = 'https://kool.krister.ee/chat/Snake_Game';
+		const response = await fetch(url);
+		const data = await response.json();
+
+		const element = document.querySelector('.best-score-count');
+		element.innerHTML = '';
+
+		// Проверка имени пользователя, если это аноним, не показываем счёт
+		if (userName === 'Anonymous') {
+			return;
+		}
+
+		// Фильтруем данные для текущего пользователя и находим лучший счёт
+		const bestScore = data.filter((item) => item.name === userName).reduce((max, item) => (item.score > max.score ? item : max), { score: 0 });
+
+		// Выводим лучший счёт, если он есть
+		if (bestScore.score > 0) {
+			element.innerHTML = `/${bestScore.score}`;
+		}
+	}
+	getBestScore();
+
+	setInterval(getBestScore, 1000);
+
+	async function getSkin() {
+		if (userName === 'Anonymous') return; // Если пользователь анонимный, ничего не делаем
+
+		const url = 'https://kool.krister.ee/chat/Snake_Game';
+		const response = await fetch(url);
+		const data = await response.json();
+
+		// Сортируем данные по времени в порядке убывания
+		const sortedData = data.sort((a, b) => new Date(b.time) - new Date(a.time));
+
+		// Перебираем отсортированные данные
+		for (const item of sortedData) {
+			const name = item.name;
+			const skin = item.skin;
+
+			if (userName === name) {
+				// Если имя совпадает с текущим пользователем
+				const animalImage = document.getElementById('animal-img');
+				const animalSelect = document.querySelector('select');
+
+				// Устанавливаем картинку и текст в select
+				animalImage.src = `img/${skin}.svg`;
+				animalSelect.value = skin;
+			}
+		}
+	}
+
+	// Вызов функции для инициализации отображения
+	getSkin();
+
+	document.addEventListener('keydown', function (e) {
+		if (e.code === 'KeyW' || e.code === 'ArrowUp') {
+			if (snake.dy === 0) {
+				snake.dy = -config.sizeCell;
+				snake.dx = 0;
+			}
+		} else if (e.code === 'KeyA' || e.code === 'ArrowLeft') {
+			if (snake.dx === 0) {
+				snake.dx = -config.sizeCell;
+				snake.dy = 0;
+			}
+		} else if (e.code === 'KeyS' || e.code === 'ArrowDown') {
+			if (snake.dy === 0) {
+				snake.dy = config.sizeCell;
+				snake.dx = 0;
+			}
+		} else if (e.code === 'KeyD' || e.code === 'ArrowRight') {
+			if (snake.dx === 0) {
+				snake.dx = config.sizeCell;
+				snake.dy = 0;
+			}
+		} else if (e.code === 'KeyR') {
+			if (gameStarted == true || gameStarted == false) {
+				startGame();
 			}
 		}
 	});
-}
 
-// Функция для проверки столкновения с границей экрана
-function collisionBorder() {
-	// Если змея выходит за пределы экрана по X
-	if (snake.x < 0) {
-		snake.x = canvas.width - config.sizeCell; // Переходит на правую сторону
-	} else if (snake.x >= canvas.width) {
-		snake.x = 0; // Переходит на левую сторону
-	}
+	startButton.addEventListener('click', startGame);
 
-	// Если змея выходит за пределы экрана по Y
-	if (snake.y < 0) {
-		snake.y = canvas.height - config.sizeCell; // Переходит вниз
-	} else if (snake.y >= canvas.height) {
-		snake.y = 0; // Переходит вверх
-	}
-}
+	animalSelect.addEventListener('change', () => {
+		const animalImage = document.getElementById('animal-img');
+		const selectedAnimal = animalSelect.value;
 
-// Функция для перезапуска игры
-function refreshGame() {
-	score = 0; // Сбросить счет
-	drawScore(); // Обновить отображение счета
-
-	// Сбросить начальные параметры змеи
-	snake.x = 160;
-	snake.y = 160;
-	snake.tails = [];
-	snake.maxTails = 3;
-	snake.dx = config.sizeCell;
-	snake.dy = 0;
-
-	randomPositionBerry(); // Генерируем новую позицию для ягоды
-}
-
-// Функция для рисования ягоды
-function drawBerry() {
-	context.fillStyle = '#25aff3'; // Устанавливаем цвет для ягоды
-	context.fillRect(
-		berry.x + config.sizeCell / 2 - config.sizeBerry, // Смещение для центрирования
-		berry.y + config.sizeCell / 2 - config.sizeBerry, // Смещение для центрирования
-		config.sizeBerry * 2, // Размер ягоды (диаметр)
-		config.sizeBerry * 2, // Размер ягоды (диаметр)
-	);
-}
-
-// Функция для генерации случайной позиции ягоды
-function randomPositionBerry() {
-	berry.x = getRandomInt(0, canvas.width / config.sizeCell) * config.sizeCell; // Случайное положение по X
-	berry.y = getRandomInt(0, canvas.height / config.sizeCell) * config.sizeCell; // Случайное положение по Y
-}
-
-// Функция для увеличения счета
-function incScore() {
-	score++; // Увеличиваем счет на 1
-	drawScore(); // Обновляем отображение счета
-}
-
-// Функция для отображения счета
-function drawScore() {
-	scoreBlock.innerHTML = score; // Отображаем счет на экране
-}
-
-// Функция для получения случайного целого числа в диапазоне
-function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min) + min); // Генерируем случайное число
-}
-
-// Обработчик нажатий клавиш для управления змеей
-document.addEventListener('keydown', function (e) {
-	// Обработка клавиш для движения вверх (W или стрелка вверх)
-	if ((e.code === 'KeyW' || e.code === 'ArrowUp') && snake.dy === 0) {
-		snake.dy = -config.sizeCell; // Изменяем направление движения по Y
-		snake.dx = 0; // Оставляем направление по X неизменным
-	}
-	// Обработка клавиш для движения влево (A или стрелка влево)
-	else if ((e.code === 'KeyA' || e.code === 'ArrowLeft') && snake.dx === 0) {
-		snake.dx = -config.sizeCell; // Изменяем направление движения по X
-		snake.dy = 0; // Оставляем направление по Y неизменным
-	}
-	// Обработка клавиш для движения вниз (S или стрелка вниз)
-	else if ((e.code === 'KeyS' || e.code === 'ArrowDown') && snake.dy === 0) {
-		snake.dy = config.sizeCell; // Изменяем направление движения по Y
-		snake.dx = 0; // Оставляем направление по X неизменным
-	}
-	// Обработка клавиш для движения вправо (D или стрелка вправо)
-	else if ((e.code === 'KeyD' || e.code === 'ArrowRight') && snake.dx === 0) {
-		snake.dx = config.sizeCell; // Изменяем направление движения по X
-		snake.dy = 0; // Оставляем направление по Y неизменным
-	}
+		animalImage.src = `img/${selectedAnimal}.svg`;
+		animalImage.alt = selectedAnimal.charAt(0).toUpperCase() + selectedAnimal.slice(1);
+	});
 });

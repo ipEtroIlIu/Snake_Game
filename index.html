@@ -13,21 +13,46 @@
 	<body>
 		<!-- Контейнер для всей игры -->
 		<div id="game">
+			<!-- Кнопка для старта игры -->
+			<button id="start-button">Start</button>
 			<!-- Заголовок игры с отображением счета -->
 			<div class="game-header">
 				<div class="game-score">
-					<span class="score-count">0</span>
+					<span class="score-count">
+						<p>0</p>
+					</span>
+					<span class="best-score-count"></span>
 					<!-- Элемент для отображения текущего счета -->
 				</div>
 			</div>
-
 			<!-- Контейнер для игрового поля (canvas) -->
 			<div class="canvas-wrapper">
 				<!-- Элемент canvas, где будет рисоваться игра (змея, ягоды, фон и т.д.) -->
 				<canvas id="game-canvas" width="400" height="400"></canvas>
 			</div>
+			<div class="yourName"></div>
+			<!-- Скин -->
+			<div class="animals">
+				<div id="animal-image">
+					<img src="img/snake.svg" id="animal-img" />
+				</div>
+				<select>
+					<option class="list" value="snake">Snake</option>
+					<option value="chicken">Chicken</option>
+					<option value="dog">Dog</option>
+					<option value="rabbit">Rabbit</option>
+					<option value="cow">Cow</option>
+					<option value="dragon">Dragon</option>
+					<option value="hog">Hog</option>
+					<option value="horse">Horse</option>
+					<option value="cat">Cat</option>
+					<option value="tiger">Tiger</option>
+				</select>
+			</div>
+			<div class="manual">
+				<img src="img/manual.svg" id="manual-img" />
+			</div>
 		</div>
-
 		<!-- Подключаем внешний файл с JavaScript кодом для логики игры -->
 		<script src="script.js"></script>
 	</body>
